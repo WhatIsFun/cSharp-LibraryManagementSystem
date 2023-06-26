@@ -4,7 +4,21 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Console.Write("Welcome To WhatIsFun Library Management System!!!\nEnter your password :");
+            string password = Console.ReadLine();
+
+            if (password == "Mohd")
+            {
+                Console.WriteLine("Hello, World!");
+                Library m = new Library();
+                m.Menu();
+
+            }
+            else
+            {
+                Console.WriteLine("Invalid Password");
+                Main(args);
+            }
         }
     }
 }

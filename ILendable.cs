@@ -8,5 +8,7 @@ namespace Library_Management_System
 {
     internal interface ILendable
     {
+        void Borrow();
+        void Return();
     }
 }
