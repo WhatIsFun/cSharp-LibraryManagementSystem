@@ -11,6 +11,16 @@ namespace Library_Management_System
 {
     internal class Library
     {
+        // Books
+        List<Book> books = new List<Book>();
+        
+        Book book1 = new Book("AC-32692", "Shot for Mercy", "Mohd", "Shot for Mercy", 20);
+        Book book2 = new Book("AC-385472", "Shot for Mercy 2 ", "Mohd", "Shot for Mercy", 100);
+
+        //Members
+
+        LibraryMembers member1 = new LibraryMembers("M-23H", "Mohammed", "Muscat", "+98262846");
+        LibraryMembers member2 = new LibraryMembers("M-53H", "Ahmed", "Sinow", "+98267476");
         //string[,,,] books = []
         internal void Menu() // To display The menu
         {
@@ -25,36 +35,43 @@ namespace Library_Management_System
             Console.Write("Choose your option from menu :");
             int option = int.Parse(Console.ReadLine());
 
-            //switch (option)
-            //{
-            //    case 1:
-            //        addBook();
-            //        break;
-            //    case 2:
-            //        addLibraryMember();
-            //        break;
-            //    case 3:
-            //        displayAllBooks();
-            //        break;
-            //    case 4:
-            //        displayAllLibraryMembers();
-            //        break; 
-            //    case 5:
-            //        returnBook();
-            //        break; 
-            //    case 6:
-            //        borrowBook();
-            //        break;
-            //    case 7:
-            //        Console.WriteLine("Thank you");
-            //        break;
-            
-            //    default:
-            //        Console.WriteLine("Invalid option\nRetry !!!");
-            //        Menu();
-            //}
+            switch (option)
+            {
+                case 1:
+                    //addBook();
+                    break;
+                case 2:
+                    //addLibraryMember();
+                    break;
+                case 3:
+                    displayAllBooks();
+                    break;
+                case 4:
+                    displayAllLibraryMembers();
+                    break;
+                case 5:
+                    returnBook();
+                    break;
+                case 6:
+                    borrowBook();
+                    break;
+                case 7:
+                    Console.WriteLine("Thank you");
+                    Environment.Exit(0);
+                    break;
+                default:
+                    Console.WriteLine("Invalid option\nRetry !!!");
+                    Menu();
+            }
         }
 
+
+
     }
-       
+    internal void displayAllBooks()
+    {
+        Console.WriteLine();
+    }
+
+
 }
