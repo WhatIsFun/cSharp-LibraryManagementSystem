@@ -11,67 +11,63 @@ namespace Library_Management_System
 {
     internal class Library
     {
-        // Books
-        List<Book> books = new List<Book>();
-        
-        Book book1 = new Book("AC-32692", "Shot for Mercy", "Mohd", "Shot for Mercy", 20);
-        Book book2 = new Book("AC-385472", "Shot for Mercy 2 ", "Mohd", "Shot for Mercy", 100);
+        //Program program = new Program(); // To make the program back to menu 
 
-        //Members
+        private static Library instance;
 
-        LibraryMembers member1 = new LibraryMembers("M-23H", "Mohammed", "Muscat", "+98262846");
-        LibraryMembers member2 = new LibraryMembers("M-53H", "Ahmed", "Sinow", "+98267476");
-        //string[,,,] books = []
-        internal void Menu() // To display The menu
+        public static Library Instance
         {
-            Console.WriteLine("\nMenu\n" +
-                    "1)Add book\n" +
-                    "2)Add library member\n" +
-                    "3)Display all books\n" +
-                    "4)Display all library members\n" +
-                    "5)Return book\n" +
-                    "6)Borrow book\n" +
-                    "7)Exit\n");
-            Console.Write("Choose your option from menu :");
-            int option = int.Parse(Console.ReadLine());
-
-            switch (option)
+            get
             {
-                case 1:
-                    //addBook();
-                    break;
-                case 2:
-                    //addLibraryMember();
-                    break;
-                case 3:
-                    displayAllBooks();
-                    break;
-                case 4:
-                    displayAllLibraryMembers();
-                    break;
-                case 5:
-                    returnBook();
-                    break;
-                case 6:
-                    borrowBook();
-                    break;
-                case 7:
-                    Console.WriteLine("Thank you");
-                    Environment.Exit(0);
-                    break;
-                default:
-                    Console.WriteLine("Invalid option\nRetry !!!");
-                    Menu();
+                if (instance == null)
+                {
+                    instance = new Library();
+                }
+                return instance;
             }
         }
 
+        private List<Book> books;
+        private List<LibraryMembers> members;
 
+        private Library()
+        {
+            books = new List<Book>();
+            members = new List<LibraryMembers>();
+        }
+        public void AddBook(string ISBN, string Title, string Auther, string Description, int AvailableCopies) // this funtion to add books to the library
+        {
+            Book book = new Book(ISBN,Title, Auther, Description, AvailableCopies);
+            books.Add(book);
+            
+        }
+        public void AddMember(string memberId, string name, string address, string phoneNumber) // this funtion to add members to the library
+        {
+            LibraryMembers member= new LibraryMembers(memberId, name, address, phoneNumber);
+            members.Add(member);
+        }
 
+        public void DisplayAllBooks()  // this funtion to display all books in the library
+        {
+            Console.WriteLine("-_-_- All Books -_-_-");
+            foreach (var book in books)   //var will take on each value stored in list in turn
+            {
+                book.bookDetails();
+            }
+        }
+
+        public void DisplayAllMembers() // this funtion to display all members in the library
+        {
+            Console.WriteLine("-_-_- All Members -_-_-");
+            foreach (var member in members)
+            {
+                member.memberDetails();
+            }
+        }
+        
+        public Book FindBook(string title)  // this funtion to find books by name and ISBN in the library
+        {
+            return books.Find(b => b.Title == title);
+        }
     }
-    internal void displayAllBooks()
-    {
-        Console.WriteLine();
-    }
-
-
 }

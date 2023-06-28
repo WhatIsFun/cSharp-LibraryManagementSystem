@@ -8,13 +8,13 @@ using System.Xml.Linq;
 
 namespace Library_Management_System
 {
-    internal class Book
+    internal class Book : ILendable
     {
-        public string ISBN { get; }
-        public string Title;
-        public string Author;
-        public string Description;
-        public int AvailableCopies;
+        public string ISBN { get; set; }
+        public string Title { get; set; }
+        public string Author { get; set; }
+        public string Description { get; set; }
+        public int AvailableCopies { get; set; }
 
         public Book(string ISBN, string Title, string Auther, string Description, int AvailableCopies) 
         {
@@ -34,11 +34,24 @@ namespace Library_Management_System
             Console.WriteLine($"Available Copies: {AvailableCopies}");
         }
 
-        internal void copiesUpdate() 
+        public void Borrow()
         {
-
+            if (AvailableCopies > 0)
+            {
+                AvailableCopies--;
+                Console.WriteLine("Book borrowed successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Sorry, the book is not available for borrowing.");
+            }
         }
 
+        public void Return()
+        {
+            AvailableCopies++;
+            Console.WriteLine("Book returned successfully.");
+        }
     }
 
 }
