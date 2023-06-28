@@ -4,7 +4,9 @@
     {
         static void Main(string[] args)
         {
-            Console.Write("Welcome To WhatIsFun Library Management System!!!\nEnter your password :");
+            Console.WriteLine("    Welcome To    ");
+            Console.WriteLine(" +-+-+-+-+-+-+-+-+-+\r\n |W|h|a|t|I|s|F|u|n|\r\n +-+-+-+-+-+-+-+-+-+");
+            Console.WriteLine("Library Management System\nEnter your password: ");
             string password = Console.ReadLine();
             Library library = Library.Instance;
 
