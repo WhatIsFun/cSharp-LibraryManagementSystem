@@ -46,21 +46,27 @@
                 {
                     case 1:
                         library.AddBook("AC-895592", "Shot for Mercy 4", "Mohd", "Shot for Mercy 4", 150);
+                        Menu();
                         break;
                     case 2:
                         library.AddMember("M-85L", "Salim", "Al Mawalih", "+98959554");
+                        Menu();
                         break;
                     case 3:
                         library.DisplayAllBooks();
+                        Menu();
                         break;
                     case 4:
                         library.DisplayAllMembers();
+                        Menu();
                         break;
                     case 5:
                         libraryMembers.Return();
+                        Menu();
                         break;
                     case 6:
                         libraryMembers.Borrow();
+                        Menu();
                         break;
                     case 7:
                         Console.WriteLine("Thank you");

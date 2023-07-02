@@ -38,12 +38,24 @@ namespace Library_Management_System
         public void AddBook(string ISBN, string Title, string Auther, string Description, int AvailableCopies) // this funtion to add books to the library
         {
             Book book = new Book(ISBN,Title, Auther, Description, AvailableCopies);
+            //Console.Write("Enter the book ISBN: ");
+            //string isbn = Console.ReadLine();
+            //Console.Write("Enter the book title: ");
+            //string title = Console.ReadLine();
+            //Console.Write("Enter the book auther: ");
+            //string auther = Console.ReadLine();
+            //Console.Write("Enter the book description: ");
+            //string description = Console.ReadLine();
+            //Console.Write("Enter the book available copies: ");
+            //string availableCopies = Console.ReadLine();
             books.Add(book);
+
             
         }
         public void AddMember(string memberId, string name, string address, string phoneNumber) // this funtion to add members to the library
         {
             LibraryMembers member= new LibraryMembers(memberId, name, address, phoneNumber);
+
             members.Add(member);
         }
 
